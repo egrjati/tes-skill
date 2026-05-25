@@ -1,9 +1,9 @@
-import Apps from "./pages/studikasus";
+import Soal1 from "./pages/rumahsoal1";
 
 function App() {
   return (
     <div>
-      <Apps />
+      <Soal1 />
     </div>
   );
 }

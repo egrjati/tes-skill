@@ -1,4 +1,4 @@
-// jika tidak dikirim, otomatis pakai "Tamu"
+// default "Tamu"
 function Greeting({ name = "Tamu" }) {
   return <p className="font-medium">Halo, {name}! Selamat datang di React.</p>;
 }
@@ -13,12 +13,12 @@ function Soal1() {
       {/* bagian dengan nama */}
       <div className="border p-4 mb-3">
         <p className="text-sm text-gray-500 mb-1">Dengan nama:</p>
-        <Greeting name="Enggar" />
+        <Greeting name="Adi" />
       </div>
 
       {/* bagian tanpa nama */}
       <div className="border p-4">
-        <p className="text-sm text-gray-500 mb-1">Tanpa nama (default):</p>
+        <p className="text-sm text-gray-500 mb-1">default:</p>
         <Greeting />
       </div>
     </div>
