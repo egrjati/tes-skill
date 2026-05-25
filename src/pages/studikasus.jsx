@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function Apps() {
-  // Menyimpan semua todo
   // Awalnya kosong []
   const [todos, setTodos] = useState([
    
@@ -11,7 +10,6 @@ function Apps() {
   const [inputTeks, setInputTeks] = useState("");
 
   // Menyimpan filter aktif
-  // Nilai awal = "Semua"
   const [filter, setFilter] = useState("Semua");
 
   // TAMBAH TODO
@@ -23,9 +21,9 @@ function Apps() {
     // hentikan fungsi
     if (inputTeks.trim() === "") return;
 
-    // Membuat object todo baru
+    // Membuat object tipe todo baru
     const baru = {
-      id: Date.now(),
+      id: todos.length + 1,
       teks: inputTeks,
       selesai: false,
     };
@@ -33,7 +31,6 @@ function Apps() {
     // Menambahkan todo baru ke array lama
     setTodos([...todos, baru]);
 
-    // Mengosongkan input setelah submit
     setInputTeks("");
   };
 
@@ -170,7 +167,7 @@ function Apps() {
         <button
           // Ubah filter menjadi "Selesai"
           onClick={() => setFilter("Selesai")}
-          
+
           className={filter === "Selesai" ? "underline font-bold" : ""}
         >
           [Selesai]
