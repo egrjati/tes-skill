@@ -113,7 +113,7 @@ function Apps() {
 
       {/* CEK ADA TODO */}
       {todos.length === 0 ? (
-        <p className="text-gray-500 italic text-sm">
+        <p className="text-gray-500 text-sm">
           Belum ada tugas, silakan tambahkan!
         </p>
       ) : (
@@ -124,6 +124,7 @@ function Apps() {
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={() => toggleSelesai(item.id)}
               >
+                {/* checked dari selesai */}
                 <input type="checkbox" checked={item.selesai} readOnly />
 
                 <span
@@ -143,35 +144,40 @@ function Apps() {
         </ul>
       )}
 
-      {/* FILTER */}
-      {todos.length > 0 && (
-        <>
-          <div className="flex gap-2 mb-2 text-sm border-t border-dashed border-black pt-2">
-            <button
-              onClick={() => setFilter("Semua")}
-              className={filter === "Semua" ? "underline font-bold" : ""}
-            >
-              [Semua]
-            </button>
+      {/* BAGIAN FILTER TODO */}
+      <div className="flex gap-2 mb-2 text-sm border-t border-dashed border-black pt-2">
+        {/* Tombol untuk menampilkan semua todo */}
+        <button
+          // Saat diklik, ubah state filter menjadi "Semua"
+          onClick={() => setFilter("Semua")}
+          // tanda
+          className={filter === "Semua" ? "underline font-bold" : ""}
+        >
+          [Semua]
+        </button>
 
-            <button
-              onClick={() => setFilter("Aktif")}
-              className={filter === "Aktif" ? "underline font-bold" : ""}
-            >
-              [Aktif]
-            </button>
+        <button
+          // Ubah filter menjadi "Aktif"
+          onClick={() => setFilter("Aktif")}
+        
+          // tanda aktif
+          className={filter === "Aktif" ? "underline font-bold" : ""}
+        >
+          [Aktif]
+        </button>
 
-            <button
-              onClick={() => setFilter("Selesai")}
-              className={filter === "Selesai" ? "underline font-bold" : ""}
-            >
-              [Selesai]
-            </button>
-          </div>
+        {/* Tombol untuk menampilkan todo yang sudah selesai */}
+        <button
+          // Ubah filter menjadi "Selesai"
+          onClick={() => setFilter("Selesai")}
+          
+          className={filter === "Selesai" ? "underline font-bold" : ""}
+        >
+          [Selesai]
+        </button>
+      </div>
 
-          <div className="text-sm">{totalSisa} todo tersisa</div>
-        </>
-      )}
+      <div className="text-sm">{totalSisa} todo tersisa</div>
     </div>
   );
 }
